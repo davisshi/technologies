@@ -1,6 +1,6 @@
 ## Aggregator Service using Completable Future
 
-**1. Async Service**
+**1. Async Service Interface**
 ```java
 public interface AsyncService {
     
@@ -14,7 +14,7 @@ public interface AsyncService {
 }
 ```
 
-**2. AsyncService Implementation**
+**2. Async Service Implementation**
 ```java
 @Async
 @Service
