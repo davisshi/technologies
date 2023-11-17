@@ -141,7 +141,7 @@ public class CustomerService extends GIFileBaseService implements FileService {
                 giFilesLoadMetricReport.increaseETSJETRecord();
         };
 
-        <b>// Here is the Lambda function to load, filter, and process the data file
+        <b>// Here is one line Lambda function to load, filter, and process the data file
         Files.lines(Paths.get(filename))
                 .map(processLine)
                 .filter(pickOnlyLineOfPruPassagesSourceCode)
