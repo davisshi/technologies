@@ -1,13 +1,15 @@
 ## Use method Chaining to do the service layering
 
-### 1. Following is a part of an example of normal coding from most developers
+### 1. Following is a part of an example coding from most developers including senior developers
+Put the most business logic in a big long method, which is not good for maintain
+
 The purpose of this doWork logic here is:
 1. load a file from a landing server
 2. validate the records
 3. load leads and into a lead list
 4. archive and delete this loaded file
 
-![](../resources/images/NormalCoding.png)
+![](../resources/images/CommonCodingForProcessingFileData.png)
 
 ### 2. And here is my code for doing the same business logic but for a different file
 
