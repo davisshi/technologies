@@ -1,1 +1,1 @@
-technologies
+This repo trys to document different coding technologies and architectures designs
