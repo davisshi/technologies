@@ -151,7 +151,7 @@ public class OffersEngineCodeListOfStringValidatorImp implements ConstraintValid
 }
 ```
 
-**6. Bringing It All Together, These annotations can be added to fields and we can pass any enum class.**
+**6. Bringing It All Together, these annotations can be added to fields and we can pass any enum class.**
 ```java
 public class Customer {
     @EnumValidator(enumClass = CustomerType.class)
