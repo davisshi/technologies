@@ -50,7 +50,7 @@ public class BatchJobFactoryImpl implements BatchJobFactory {
     private DoNotEmailBatchJob doNotEmailBatchJob;
 
     @Autowired
-    private GIFilesLoadBatchJobImpl giFilesLoadBatchJob
+    private GIFilesLoadBatchJobImpl giFilesLoadBatchJob;
 
     @Override
     public BatchJob getBatchJob(BatchJobName batchJobName) {
@@ -62,7 +62,7 @@ public class BatchJobFactoryImpl implements BatchJobFactory {
             case DONOTEMAIL:
                 return doNotEmailBatchJob;
 
-            case GIFILELOADBATCH:
+            case GIFILELOAD:
                 return giFilesLoadBatchJob;
 
             default:
