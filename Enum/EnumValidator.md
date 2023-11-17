@@ -113,3 +113,40 @@ public class OffersEngineCodeStringValidatorImp implements ConstraintValidator<O
     }
 }
 ```
+
+**5. EnumValidator Implementation**
+```java
+public class OffersEngineCodeListOfStringValidatorImp implements ConstraintValidator<OffersEngineCodeValidator, List<String>> {
+    @Autowired
+    private InternalOperationsClient internalOperationsClient;
+
+    private String key = null;
+
+    private MetadataVerification metadataVerification;
+
+    @Override
+    public void initialize(OffersEngineCodeValidator constraint) {
+        key = constraint.codeEnum().getKey();
+        metadataVerification = constraint.metadataVerification();
+     }
+
+    @Override
+    public boolean isValid(List<String> values, ConstraintValidatorContext context) {
+        // check metadata codes
+        if (metadataVerification == MetadataVerification.CODE) {
+            return !ObjectUtils.isEmpty(values)
+                    && internalOperationsClient
+                    .getApplicationMetaDataDTOByMetaDataKey(key)
+                    .keySet()
+                    .containsAll(values);
+        }
+
+        // check metadata values
+        return !ObjectUtils.isEmpty(values)
+                && internalOperationsClient
+                .getApplicationMetaDataDTOByMetaDataKey(key)
+                .values()
+                .containsAll(values);
+    }
+}
+```
