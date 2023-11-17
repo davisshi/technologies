@@ -1,6 +1,8 @@
 ## Using Spock Groovy to do the unit tests
 
-### Test each business logic with different use cases in each unit test 
+1. Test each business logic with different use cases in each unit test by using Spock and Groovy
+2. Comparing to test each use case for each the same business logic in JUnit
+3. Avoid creating multiple unit tests to test the same business logic
 
 ```java
 def "SaveOrUpdateUserAgent with Exception"() {
