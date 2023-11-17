@@ -54,3 +54,43 @@ public class EnumValidatorImpl implements ConstraintValidator<EnumValidator, Str
 
 }
 ```
+
+**3. EnumValidator Implementation**
+```java
+public class OffersEngineCodeStringValidatorImp implements ConstraintValidator<OffersEngineCodeValidator, String> {
+
+    @Autowired
+    private InternalOperationsClient internalOperationsClient;
+
+    private String key = null;
+
+    private MetadataVerification metadataVerification;
+
+    @Override
+    public void initialize(OffersEngineCodeValidator constraint) {
+        key = constraint.codeEnum().getKey();
+        metadataVerification = constraint.metadataVerification();
+    }
+
+    @Override
+    public boolean isValid(String value, ConstraintValidatorContext context) {
+        // check metadata code
+        if (metadataVerification == MetadataVerification.CODE) {
+            return !StringUtils.isEmpty(value)
+                    && internalOperationsClient
+                    .getApplicationMetaDataDTOByMetaDataKey(key)
+                    .keySet()
+                    .stream()
+                    .anyMatch(v -> v.equalsIgnoreCase(value));
+        }
+
+        // check metadata value
+        return !StringUtils.isEmpty(value)
+                && internalOperationsClient
+                .getApplicationMetaDataDTOByMetaDataKey(key)
+                .values()
+                .stream()
+                .anyMatch(v -> v.equalsIgnoreCase(value));
+    }
+}
+```
