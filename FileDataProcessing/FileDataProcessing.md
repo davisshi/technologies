@@ -97,7 +97,7 @@ public abstract class GIFileBaseService {
 ```
 
 **3. Concrete Customer Service for loading and processing customer's file**
-<pre><code>java
+<pre><code>
 @Service
 public class CustomerService extends GIFileBaseService implements FileService {
     private static final CLogger logger = LogFactory.getCLogger(CustomerService.class.getName());
