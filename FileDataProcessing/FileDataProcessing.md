@@ -96,7 +96,7 @@ public abstract class GIFileBaseService {
 }
 ```
 
-**3. Concrete Customer Service for loading and processing customer's file**
+**3. Concrete Customer Service for loading and processing customer's file with one bold line Lambda Function to process a data file**
 <pre><code>java
 @Service
 public class CustomerService extends GIFileBaseService implements FileService {
