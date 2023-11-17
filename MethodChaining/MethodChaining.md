@@ -11,7 +11,7 @@ The purpose of this doWork logic here is:
 
 ![](../resources/images/CommonCodingForProcessingFileData.png)
 
-### 2. And here is my code for doing the same business logic but for processing a different file
+### 2. And here is my code for doing the same business logic but for processing a different file data
 
 ```Java
     @Override
