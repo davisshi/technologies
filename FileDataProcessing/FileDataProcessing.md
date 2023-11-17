@@ -96,7 +96,7 @@ public abstract class GIFileBaseService {
 }
 ```
 
-**3. Concrete Customer Service for loading and processing customer's file with one bold line Lambda Function to process a data file**
+**3. Concrete Customer Service for loading and processing customer's file**
 <pre><code>java
 @Service
 public class CustomerService extends GIFileBaseService implements FileService {
@@ -141,7 +141,8 @@ public class CustomerService extends GIFileBaseService implements FileService {
                 giFilesLoadMetricReport.increaseETSJETRecord();
         };
 
-        <b>Files.lines(Paths.get(filename))
+        <b>// Here is the Lambda function to load, filter, and process the data file
+        Files.lines(Paths.get(filename))
                 .map(processLine)
                 .filter(pickOnlyLineOfPruPassagesSourceCode)
                 .forEach(customerConsumer);</b>
