@@ -28,7 +28,7 @@ public interface MetricReportRegistry {
 }
 ```
 
-**4. Fullfillment Metric Report**
+**4. Concrete Fulfillment Metric Report**
 ```java
 @Data
 public class FulfillmentMetricReport implements MetricReport {
