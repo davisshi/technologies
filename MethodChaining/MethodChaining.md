@@ -1,4 +1,4 @@
-## Use method Chaining to do the service layering
+## Use Method Chaining and Service Layering
 
 ### 1. Following is a part of an example coding from most developers including senior developers
 Put the most business logic in a big long method, which is not good for maintain
@@ -11,7 +11,7 @@ The purpose of this doWork logic here is:
 
 ![](../resources/images/CommonCodingForProcessingFileData.png)
 
-### 2. And here is my code for doing the same business logic but for processing a different file data
+### 2. And here is my code for doing the same business logic just for processing a different file data
 
 ```Java
     @Override
