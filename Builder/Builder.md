@@ -2,7 +2,7 @@
 
 ### Using Builder and Template Method to generate customized excel report file
 
-1. Report Builder interface
+**1. Report Builder interface**
 ```java
 public interface ReportBuilder<T> {
 
@@ -18,7 +18,7 @@ public interface ReportBuilder<T> {
 }
 ```
 
-2. Abstract Excel Report Builder to implement the set data, build header, and build excel file 
+**2. Abstract Excel Report Builder to implement the set data, build header, and build excel file** 
 ```java
 public abstract class ExcelReportBuilder<T> implements ReportBuilder<T> {
     private static final CLogger logger = LogFactory.getCLogger(ExcelReportBuilder.class.getName());
@@ -157,7 +157,7 @@ public abstract class ExcelReportBuilder<T> implements ReportBuilder<T> {
 }
 ```
 
-3. The concrete Excel Report Body builder
+**3. The concrete Excel Report Body builder**
 ```java
 @Component
 public class FeaturesDiscrepancyExcelReportBuilder extends ExcelReportBuilder<FeaturesDiscrepancyDTO> {
@@ -225,7 +225,7 @@ public class FeaturesDiscrepancyExcelReportBuilder extends ExcelReportBuilder<Fe
     }
 }
 ```
-4. To call this Report Builder
+**4. To call this Report Builder**
 ```java
 @Autowired
 private ReportBuilder<FeaturesDiscrepancyDTO> reportBuilder;
