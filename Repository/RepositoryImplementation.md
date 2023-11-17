@@ -1,4 +1,4 @@
-## Repository Implementation
+## Repository
 
 **1. Repository Interface**
 ```java
