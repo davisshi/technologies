@@ -1,6 +1,6 @@
 ## Metric Report Registry
 
-**1. Metric Report Interface without method**
+**1. Metric Report Interface**
 ```java
 public interface MetricReport {
 }
