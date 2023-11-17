@@ -1,4 +1,4 @@
-## Use Method Chaining and Service Layering
+## Method Chaining and Service Layering
 
 ### 1. Following is a part of an example coding from most developers including senior developers
 Put the most business logic in a big long method, which is not good for maintain
