@@ -1,4 +1,4 @@
-## Customized Enum with Customized Methods
+## Customized Enum with Customized Methods and Post Construct Injector
 
 ```java
 public enum TrexFileType {
