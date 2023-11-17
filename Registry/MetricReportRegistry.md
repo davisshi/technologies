@@ -28,7 +28,7 @@ public interface MetricReportRegistry {
 }
 ```
 
-**4. Metric Report Registry Implementation**
+**4. Metric Report Registry Implementation with Builder**
 ```java
 @Component
 public class MetricReportRegistryImpl implements MetricReportSet, MetricReportRegistry {
