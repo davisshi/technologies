@@ -225,7 +225,7 @@ public class FeaturesDiscrepancyExcelReportBuilder extends ExcelReportBuilder<Fe
     }
 }
 ```
-**4. Call this Report Builder**
+**4. Call this Report Builder to generate specified concrete excel report file**
 ```java
 @Autowired
 private ReportBuilder<FeaturesDiscrepancyDTO> reportBuilder;
