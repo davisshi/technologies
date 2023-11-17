@@ -97,7 +97,7 @@ public abstract class GIFileBaseService {
 ```
 
 **3. Concrete Customer Service for loading and processing customer's file**
-```java
+<pre><code>java
 @Service
 public class CustomerService extends GIFileBaseService implements FileService {
     private static final CLogger logger = LogFactory.getCLogger(CustomerService.class.getName());
@@ -141,10 +141,10 @@ public class CustomerService extends GIFileBaseService implements FileService {
                 giFilesLoadMetricReport.increaseETSJETRecord();
         };
 
-        Files.lines(Paths.get(filename))
+        <b>Files.lines(Paths.get(filename))
                 .map(processLine)
                 .filter(pickOnlyLineOfPruPassagesSourceCode)
-                .forEach(customerConsumer);
+                .forEach(customerConsumer);</b>
 
         logger.info("GI Customer file: " + filename + " records loaded are: " + numOfRecords);
         logger.info("leadInfoDTOMap size: "+leadInfoDTOMap.size());
@@ -159,4 +159,4 @@ public class CustomerService extends GIFileBaseService implements FileService {
         logger.info("GI Customer file: " + filenameCTL + " deleted:  "+fileDeletedCTL);
     }
 }
-```
+</pre></code>
