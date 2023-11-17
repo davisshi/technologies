@@ -7,7 +7,7 @@ The purpose of this doWork logic here is:
 3. load leads and into a lead list
 4. archive and delete this loaded file
 
-![](../images/NormalCoding.png)
+![](../resources/images/NormalCoding.png)
 
 ### 2. And here is my code for doing the same business logic but for a different file
 
