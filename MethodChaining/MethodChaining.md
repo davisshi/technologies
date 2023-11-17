@@ -1,6 +1,6 @@
 ## Use method Chaining to do the service layering
 
-### 1. Following is the normal coding from most developers
+### 1. Following is a part of an example of normal coding from most developers
 The purpose of this doWork logic here is:
 1. load a file from a landing server
 2. validate the records
