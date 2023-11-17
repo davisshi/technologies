@@ -8,7 +8,7 @@ public interface FileService {
 }
 ```
 
-**2. Abstract File Base Service for common lambda functions defined and common methods defined
+**2. Abstract File Base Service for common lambda functions defined and common methods defined**
 ```java
 public abstract class GIFileBaseService {
     private static final CLogger logger = LogFactory.getCLogger(GIFileBaseService.class.getName());
