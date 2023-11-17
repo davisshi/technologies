@@ -6,7 +6,7 @@ Put the most business logic in a big long method, which is not good for maintain
 The purpose of this doWork logic here is:
 1. load a file from a landing server
 2. validate the records
-3. load leads and into a lead list
+3. load leads and create a lead list
 4. archive and delete this loaded file
 
 ![](../resources/images/CommonCodingForProcessingFileData.png)
