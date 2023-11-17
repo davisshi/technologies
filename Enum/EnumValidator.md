@@ -55,7 +55,26 @@ public class EnumValidatorImpl implements ConstraintValidator<EnumValidator, Str
 }
 ```
 
-**3. EnumValidator Implementation**
+**3. EnumValidator Interface**
+```java
+@Target({ElementType.METHOD, ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+@Constraint(validatedBy = {OffersEngineCodeStringValidatorImp.class, OffersEngineCodeListOfStringValidatorImp.class})
+public @interface OffersEngineCodeValidator {
+
+    OffersEngineCodeEnum codeEnum() default OffersEngineCodeEnum.OFFER_CODE;
+
+    MetadataVerification metadataVerification() default MetadataVerification.VALUE;
+
+    String message() default "Value is not valid";
+
+    Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
+}
+```
+
+**4. EnumValidator Implementation**
 ```java
 public class OffersEngineCodeStringValidatorImp implements ConstraintValidator<OffersEngineCodeValidator, String> {
 
