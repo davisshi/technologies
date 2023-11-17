@@ -101,6 +101,12 @@ public class JWTTokenHelper {
         return flag;
     }
 
+    /**
+     * extractToken
+     * @param claims
+     * @param tokenDataDTO
+     * @return
+     */
     public static void extractToken(Claims claims, TokenDataDTO tokenDataDTO) {
         if (!ObjectUtils.isEmpty(claims.get("sessionID")))
             tokenDataDTO.setSsoId((String) claims.get("sessionID"));
@@ -116,7 +122,7 @@ public class JWTTokenHelper {
      * validateAndExtractToken
      * @param key
      * @param builder
-     * @return
+     * @return TokenDataDTO
      */
     public static TokenDataDTO validateAndExtractToken(String key, String builder) {
         TokenDataDTO tokenDataDTO = new TokenDataDTO();
@@ -143,7 +149,7 @@ public class JWTTokenHelper {
      *
      * @param securityKey
      * @param builder
-     * @return
+     * @return Claims
      * @throws UnsupportedJwtException
      * @throws MalformedJwtException
      * @throws SignatureException
