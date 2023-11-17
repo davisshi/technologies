@@ -75,18 +75,18 @@ public class BatchJobFactoryImpl implements BatchJobFactory {
 **4. Load and Run Batch**
 ```java
 @Override
-    public void run(String... args) throws Exception {
-        logger.info("The batch job for consent management is started");
+public void run(String... args) throws Exception {
+    logger.info("The batch job for consent management is started");
 
-        String batchName = System.getProperty(BATCH_NAME);
+    String batchName = System.getProperty(BATCH_NAME);
 
-        if (StringUtils.isEmpty(batchName)) {
-            throw new IllegalArgumentException("Toggle Batch Job Name is required to start a toggle batch job");
-        }
-
-        BatchJob batchJob = batchJobFactory.getBatchJob(BatchJobName.valueOf(batchName.toUpperCase()));
-        batchJob.doWork();
-
-        logger.info("The batch job for consent management is done");
+    if (StringUtils.isEmpty(batchName)) {
+        throw new IllegalArgumentException("Toggle Batch Job Name is required to start a toggle batch job");
     }
+
+    BatchJob batchJob = batchJobFactory.getBatchJob(BatchJobName.valueOf(batchName.toUpperCase()));
+    batchJob.doWork();
+
+    logger.info("The batch job for consent management is done");
+}
 ```
