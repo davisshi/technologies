@@ -28,7 +28,74 @@ public interface MetricReportRegistry {
 }
 ```
 
-**4. Metric Report Registry Implementation with Report Builder**
+**4. Fullfillment Metric Report**
+```java
+@Data
+public class FulfillmentMetricReport implements MetricReport {
+    private AtomicInteger numOfOfferEnrollmentWaitingForQualification = new AtomicInteger();
+    private AtomicInteger numOfOfferEnrollmentQualified = new AtomicInteger();
+    private AtomicInteger numOfEnrollmentActionCompleted = new AtomicInteger();
+    private AtomicInteger numOfOfferEnrollmentRewardMappingCreated = new AtomicInteger();
+    private AtomicInteger numOfOfferEnrollmentDisqualifiedMinAmountNotReached = new AtomicInteger();
+    private AtomicInteger numOfOfferEnrollmentDisqualifiedSSNHasBeenUsedForPromo = new AtomicInteger();
+    private List<String> fulfillmentMessages = new CopyOnWriteArrayList<>();
+
+    private AtomicInteger numOfOfferEnrollmentEnrolledWithOverrideQuantity = new AtomicInteger();
+    private AtomicInteger numOfOfferEnrollmentWithOverrideQuantityQualified = new AtomicInteger();
+    private AtomicInteger numOfOfferEnrollmentWithOverrideQuantityRewardMappingCreated = new AtomicInteger();
+    private AtomicInteger numOfOfferEnrollmentWithOverrideQuantityDisqualifiedSSNHasBeenUsedForPromo = new AtomicInteger();
+    private List<String> fulfillmentOverrideQuantityMessages = new CopyOnWriteArrayList<>();
+
+
+    public void setNumOfOfferEnrollmentWaitingForQualification(int num) {
+        numOfOfferEnrollmentWaitingForQualification.getAndSet(num);
+    }
+
+    public void setNumOfOfferEnrollmentEnrolledWithOverrideQuantity(int num) {
+        numOfOfferEnrollmentEnrolledWithOverrideQuantity.getAndSet(num);
+    }
+
+    public void increaseOfferEnrollmentQualified(BatchJob batchJob) {
+        if (batchJob == BatchJob.FULFILLMENT)
+            numOfOfferEnrollmentQualified.incrementAndGet();
+        else if (batchJob == BatchJob.FULFILLMENT_OVERRIDEQUANTITY)
+            numOfOfferEnrollmentWithOverrideQuantityQualified.incrementAndGet();
+    }
+
+    public void increaseEnrollmentActionCompleted(BatchJob batchJob) {
+        if (batchJob == BatchJob.FULFILLMENT)
+            numOfEnrollmentActionCompleted.incrementAndGet();
+    }
+
+    public void increaseOfferEnrollmentRewardMappingCreated(BatchJob batchJob) {
+        if (batchJob == BatchJob.FULFILLMENT)
+            numOfOfferEnrollmentRewardMappingCreated.incrementAndGet();
+        else if (batchJob == BatchJob.FULFILLMENT_OVERRIDEQUANTITY)
+            numOfOfferEnrollmentWithOverrideQuantityRewardMappingCreated.incrementAndGet();
+    }
+
+    public void increaseOfferEnrollmentDisqualifiedMinAmountNotReached(BatchJob batchJob) {
+        if (batchJob == BatchJob.FULFILLMENT)
+            numOfOfferEnrollmentDisqualifiedMinAmountNotReached.incrementAndGet();
+    }
+
+    public void increaseOfferEnrollmentDisqualifiedSSNHasBeenUsedForPromo(BatchJob batchJob) {
+        if (batchJob == BatchJob.FULFILLMENT)
+            numOfOfferEnrollmentDisqualifiedSSNHasBeenUsedForPromo.incrementAndGet();
+        else if (batchJob == BatchJob.FULFILLMENT_OVERRIDEQUANTITY)
+            numOfOfferEnrollmentWithOverrideQuantityDisqualifiedSSNHasBeenUsedForPromo.incrementAndGet();
+    }
+
+    public void addMessage(BatchJob batchJob, String message) {
+        if (batchJob == BatchJob.FULFILLMENT)
+            fulfillmentMessages.add(message);
+        else if (batchJob == BatchJob.FULFILLMENT_OVERRIDEQUANTITY)
+            fulfillmentOverrideQuantityMessages.add(message);
+    }
+}
+```
+
+**5. Metric Report Registry Implementation with Report Builder**
 ```java
 @Component
 public class MetricReportRegistryImpl implements MetricReportSet, MetricReportRegistry {
