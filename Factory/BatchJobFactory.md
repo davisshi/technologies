@@ -39,7 +39,7 @@ public class GIFilesLoadBatchJobImpl implements BatchJob {
 ```
 
 **3. Batch Job Factory Implementation**
-``java
+```java
 @Component
 public class BatchJobFactoryImpl implements BatchJobFactory {
 
@@ -70,7 +70,7 @@ public class BatchJobFactoryImpl implements BatchJobFactory {
         }
     }
 }
-``
+```
 
 **4. Load and Run Batch**
 ```java
