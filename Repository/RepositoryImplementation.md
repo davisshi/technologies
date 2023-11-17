@@ -1,5 +1,16 @@
 ## Repository Implementation
 
+**1. Repository Interface**
+```java
+public interface OfferEnrollmentSummaryRepository {
+
+    Integer getOfferEnrollmentSumamryTotalNumberOfItems(Long offerId, Long coUserId, String enrollmentStatus, IncludeFinishedEnrollmentStatus includeFinishedEnrollmentStatus);
+
+    List<OfferEnrollmentSummaryDTO> getOfferEnrollmentSummaryList(Long offerId, Long coUserId, String enrollmentStatus, OfferEnrollmentSummarySortBy sortByEnum, SortDirection sortDirection, PaginationDTO paginationDTO, IncludeFinishedEnrollmentStatus includeFinishedEnrollmentStatus);
+}
+```
+
+**2. Repository Implementation**
 ```java
 @Repository
 public class OfferEnrollmentSummaryRepositoryImpl implements OfferEnrollmentSummaryRepository {
