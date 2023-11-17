@@ -1,3 +1,3 @@
-## Lead Reprocess Design
+## Lead Reprocess Design for Resilience
 
-![](../resources/images/Lead Reprocess Design.jpeg)
+![Lead Reprocess Design](../resources/images/Lead Reprocess Design.jpeg)
