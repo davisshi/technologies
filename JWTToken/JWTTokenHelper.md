@@ -6,8 +6,6 @@ public class JWTTokenHelper {
 
     /**
      * Description: Getting the SignatureAlogorithm object instance.
-     *
-     * @return SignatureAlgorithm
      */
     public static SignatureAlgorithm getSignatureAlgorithm() {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.valueOf(TOKEN_SIGNINGALGORITHM);
@@ -18,11 +16,6 @@ public class JWTTokenHelper {
     /**
      * Description: This method generates the signingKey object based on the
      * signingAlgorithm and UTF-8 encodingCharSet.
-     *
-     * @param signatureAlgorithm
-     * @param securityKey
-     * @return Key
-     * @throws UnsupportedEncodingException
      */
     public static Key getKey(SignatureAlgorithm signatureAlgorithm, String securityKey)
             throws UnsupportedEncodingException {
@@ -37,14 +30,6 @@ public class JWTTokenHelper {
     /**
      * Description: GenerateToken method will generate the builder based on the JWT
      * apis which packs the custom claims and signing with algorithm and expiration.
-     *
-     * @param securityKey
-     * @param ttlMillis
-     * @param signatureAlgorithm
-     * @param signingKey
-     * @param payload
-     * @return TDToken
-     * @throws UnsupportedEncodingException
      */
     public static String generateTDToken(String securityKey, long ttlMillis, SignatureAlgorithm signatureAlgorithm,
                                          Key signingKey, String ssoId, String buidType, Object payload) throws UnsupportedEncodingException {
@@ -79,9 +64,6 @@ public class JWTTokenHelper {
      * Description: Validating the claims into this method and if validation fails
      * this method will return the false as flag and if validation is successfull
      * this returns the true.
-     *
-     * @param claims
-     * @return boolean
      */
     public static boolean validateTdToken(Claims claims) {
         boolean flag = false;
@@ -102,10 +84,7 @@ public class JWTTokenHelper {
     }
 
     /**
-     * extractToken
-     * @param claims
-     * @param tokenDataDTO
-     * @return
+     * Description: extractToken
      */
     public static void extractToken(Claims claims, TokenDataDTO tokenDataDTO) {
         if (!ObjectUtils.isEmpty(claims.get("sessionID")))
@@ -119,10 +98,7 @@ public class JWTTokenHelper {
     }
 
     /**
-     * validateAndExtractToken
-     * @param key
-     * @param builder
-     * @return TokenDataDTO
+     * Description: validateAndExtractToken
      */
     public static TokenDataDTO validateAndExtractToken(String key, String builder) {
         TokenDataDTO tokenDataDTO = new TokenDataDTO();
@@ -146,15 +122,6 @@ public class JWTTokenHelper {
 
     /**
      * Description: Method unpack the claims and set into a PruCustomClaims object.
-     *
-     * @param securityKey
-     * @param builder
-     * @return Claims
-     * @throws UnsupportedJwtException
-     * @throws MalformedJwtException
-     * @throws SignatureException
-     * @throws IllegalArgumentException
-     * @throws UnsupportedEncodingException
      */
     private static Claims parseToken(String securityKey, String builder) throws UnsupportedJwtException,
             MalformedJwtException, SignatureException, IllegalArgumentException, UnsupportedEncodingException {
