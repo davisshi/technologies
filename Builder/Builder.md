@@ -1,4 +1,4 @@
-## Builder and Template Method
+## Builder with Template Method
 
 ### Using Builder and Template Method to generate customized excel report file
 
